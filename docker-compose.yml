@@ -1,0 +1,26 @@
+version: '3.8'
+services:     
+  web_maven_build:
+    build:
+      context: .
+      dockerfile: MavenDocker
+    container_name: web_maven_build
+    volumes:
+      - D:/maven_repo:/root/maven_repo     
+      - D:/GloryProjects/gloryweb/GloryWeb:/usr/src/mymaven
+  api_maven_build:
+    build:
+      context: .
+      dockerfile: MavenDocker
+    container_name: api_maven_build
+    volumes:
+      - D:/GloryProjects/glorywebapi/GloryWebApi/maven_repo:/root/maven_repo     
+      - D:/GloryProjects/glorywebapi/GloryWebApi:/usr/src/mymaven
+  config_maven_build:
+    build:
+      context: .
+      dockerfile: MavenDocker
+    container_name: config_maven_build
+    volumes:
+      - D:/GloryProjects/gloryconfigweb/GloryConfigWeb/maven_repo:/root/maven_repo     
+      - D:/GloryProjects/gloryconfigweb/GloryConfigWeb:/usr/src/mymaven
